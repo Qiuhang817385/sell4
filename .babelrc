@@ -1,0 +1,13 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+    }],
+    "stage-2"
+  ],
+  // transform-runtime把es6一些方法做转换
+  "plugins": ["transform-vue-jsx", "transform-runtime"]
+}
