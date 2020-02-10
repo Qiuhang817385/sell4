@@ -128,7 +128,7 @@ export default {
       // api.JH_news('/goods', 'type=top&key=123456').then(res => {
       axios.get('/goods')
         .then((res) => {
-          console.log('goodres', res.data.data);
+          console.log('goodres', res.data);
           this.goods = res.data.data.goods;
           this.$nextTick(() => {
             this._initScroll();

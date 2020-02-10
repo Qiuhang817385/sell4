@@ -33,5 +33,4 @@ export default new VueRouter({
       component: Seller
     }
   ]
-
 });

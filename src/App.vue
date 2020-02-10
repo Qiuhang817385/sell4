@@ -22,7 +22,7 @@
 import headers from './components/header/header.vue';
 import axios from 'axios';
 import './common/stylus/index.styl';
-
+const ERR_OK = 0;
 export default {
   name: 'index',
   data: function () {
@@ -39,7 +39,9 @@ export default {
       axios.get('/seller')
         .then((res) => {
           console.log('res', res);
-          this.seller = res.data.data.seller;
+          if (res.data.errno === ERR_OK) {
+            this.seller = res.data.data.seller;
+          }
         })
         .catch((e) => {
           console.log(e);
@@ -51,24 +53,33 @@ export default {
   }
 };
 </script>
-<style  lang="stylus" rel="stylesheet/stylus">
+<style  lang="scss">
 // @import "./common/stylus/mixin.styl"
 // @import "./common/stylus/base.styl"
-#app
-  .tab
-    display flex
-    width 100%
-    height 40px
-    line-height 40px
-    // border-1px(red)
-    .tab-item
-      flex 1
-      text-align center
-      & > a
-        display block
-        font-size 14px
-        color rgba(77, 85, 93, 1)
+@import "./common/css/mixin.scss";
+#app {
+  .tab {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    // border-bottom: 1px solid rgba(7, 17, 27, 0.1);
+    @include border-1px(rgba(7, 17, 27, 0.1));
+    .tab-item {
+      flex: 1;
+      text-align: center;
+      // background-color: red;
+      & > a {
+        display: block;
+        font-size: 14px;
+        color: rgba(77, 85, 93, 1);
         // &:active不起作用
-        &.active
-          color red
+        &.active {
+          color: red;
+        }
+      }
+    }
+  }
+}
 </style>
