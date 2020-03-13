@@ -45,14 +45,19 @@
       <span class="bulletin-text">{{seller.bulletin}}</span>
       <i class="icon-keyboard_arrow_right"></i>
     </div>
+    
+    
     <div class="background">
       <img :src="seller.avatar"
            width="100%"
            height="100%" />
     </div>
+
+    <!-- 遮罩层 -->
     <transition name="fade">
       <div v-show="detailShow"
            class="detail">
+
         <!-- transition="fade" -->
         <div class="detail-wrapper clearfix">
           <div class="detail-main">
@@ -89,6 +94,9 @@
             </div>
           </div>
         </div>
+
+
+
         <div class="detail-close"
              @click="hideDetail">
           <i class="icon-close"></i>
@@ -255,6 +263,10 @@ export default {
     filter blur(10px)
     // 不是加到这里啦
     // background rgba(7,17,27,0.5)
+
+
+
+
   .fade-enter-active, .fade-leave-active
     transition all 0.5s
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
