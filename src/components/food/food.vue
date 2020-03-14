@@ -11,6 +11,7 @@
             <i class="icon-arrow_lift"></i>
           </div>
         </div>
+
         <div class="content">
           <h1 class="title">{{food.name}}</h1>
           <div class="detail">
